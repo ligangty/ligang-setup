@@ -1,4 +1,4 @@
-# /home/${HOME}/.bashrc
+# ${HOME}/.bashrc
 
 #export JAVA_HOME=/usr/lib/jvm/java
 
@@ -53,55 +53,10 @@ export PATH=$PATH:$CARGO_HOME/bin
 
 #git
 function git_branch {
-ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-echo "("${ref#refs/heads/}") ";
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}") ";
 }
 export PS1="[\u@laptop:\[\033[1;32m\]\W\[\033[0m] \033[1;36m\]\$(git_branch)\[\033[0m\]$ "
-
-# alias for ls
-alias ll='ls -lh'
-alias la='ls -alh'
-
-# alias for git
-alias gs='git status'
-alias gca='git commit -v -a'
-
-alias tailf='tail -f'
-
-alias ping="ping -c 5"
-
-# cd go to up folders
-alias ..="cd .."
-alias ...="cd ../.."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
-# ls enhancement
-alias ls='ls --color=auto'
-alias ll='ls -lh --color=auto'
-alias la='ls -alh --color=auto'
-alias lstree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-
-
-# zquestz/s search in terminal
-alias so='s -b firefox -p stackoverflow'
-alias sgo='s -b firefox -p google'
-alias swp='s -p wikipedia'
-alias sba='s -p baidu'
-alias sbi='s -p bing'
-alias s3o='s -b w3m -p stackoverflow'
-alias s3go='s -b w3m -p google'
-
-
-# grep enhancement
-alias grep='grep --color=auto'
-# find java files under current folder which contains string
-grepcurjava() { grep -r ./ -e $1 --include *.java --color=auto; }
-
-
-# mkdir and cd into it immediately
-mkcd() { mkdir -p "$1"; cd "$1"; }
 
 # extract all kinds of archive
 extract() {
@@ -125,17 +80,9 @@ extract() {
      fi
 }
 
-# system info alias
-alias meminfo="free -m -l -t"
-alias ps?="ps aux | grep"
-# show programs connected to network
-alias listennet='lsof -P -i -n'
-# show active ports
-alias activeport='netstat -tulanp'
-
-
 # atom file deletion not working
 export ELECTRON_TRASH=gio
 
+source $HOME/.aliases
 source /etc/profile.d/autojump.sh
 source /usr/share/bash-completion/completions/git

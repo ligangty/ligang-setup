@@ -1,0 +1,42 @@
+# ${HOME}/.aliases
+
+###############
+### Aliases ###
+###############
+
+# ls enhancement
+alias ls='ls --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -alh --color=auto'
+alias lstree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+
+# common alias
+alias tailf='tail -f'
+alias ping='ping -c 5'
+alias df='df -h'
+
+# alias for git
+alias gs='git status'
+alias gca='git commit -v -a'
+
+# cd go to up folders
+alias ..="cd .."
+alias ...="cd ../.."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# system info alias
+alias meminfo="free -m -l -t"
+alias ps?="ps aux | grep"
+# show programs connected to network
+alias listennet='lsof -P -i -n'
+# show active ports
+alias activeport='netstat -tulanp'
+
+# find java files under current folder which contains string
+grepcurjava() { grep -r ./ -e $1 --include *.java --color=auto; }
+
+# grep enhancement
+alias grep='grep --color=auto'
+
