@@ -34,8 +34,7 @@
   lineinfile: 
     path: /etc/yum.repos.d/google-chrome.repo
     line: "[google-chrome]\nname=google-chrome\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl.google.com/linux/linux_signing_key.pub"
-  become: true
-    
+  become: true    
 
 - name: Install tools
   dnf: name={{ item }} state=latest
@@ -44,10 +43,13 @@
     - vim
     - tmux
     - lsof
+    - gzip
     - git
     - autojump
     - unrar
     - gimp
+    - vlc
+    - evince
     - code
     - google-chrome
     - java-1.8.0-openjdk
