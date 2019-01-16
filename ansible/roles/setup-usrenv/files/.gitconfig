@@ -1,0 +1,18 @@
+[user]
+	name = Gang Li
+	email = gli@redhat.com
+[color]
+	ui = true
+[alias]
+	tree = log --graph --decorate --oneline --all
+	rebasehead = rebase -i HEAD~2
+    co = checkout
+    b = branch
+    s = status
+    f = fetch --all
+    p = push
+    l = pull
+    lg = log
+    ca = commit -v -a
+[core]
+	editor = vim

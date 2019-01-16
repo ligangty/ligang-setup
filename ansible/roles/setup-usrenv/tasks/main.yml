@@ -1,0 +1,9 @@
+---
+
+- name: Setup bash & git config files
+  copy: src={{ item }} dest={{ lookup('env', 'HOME') }}/ owner={{ lookup('env', 'USER') }} group={{ lookup('env', 'USER') }} mode=644
+  with_items:
+    - .bashrc
+    - .bash_profile
+    - .gitconfig
+  become: false
