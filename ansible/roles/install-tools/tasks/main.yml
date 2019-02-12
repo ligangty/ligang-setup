@@ -57,4 +57,5 @@
     - java-1.8.0-openjdk-devel
     - go
     - nodejs
+    - hub
   become: true
