@@ -6,5 +6,6 @@
   
   roles:
     - install-tools
-    - steup-system
+    - setup-system
     - setup-usrenv
+    - install-devs

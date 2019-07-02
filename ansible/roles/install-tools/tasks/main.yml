@@ -36,7 +36,7 @@
     line: "[google-chrome]\nname=google-chrome\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl.google.com/linux/linux_signing_key.pub"
   become: true    
 
-- name: Install tools
+- name: Install preferred tools
   dnf: name={{ item }} state=latest
   with_items:
     - wget
@@ -45,18 +45,12 @@
     - lsof
     - gzip
     - git
+    - hub 
     - autojump
     - unrar
     - gimp
     - vlc
     - evince
-    - code
     - google-chrome
-    - java-1.8.0-openjdk
-    - java-1.8.0-openjdk-src
-    - java-1.8.0-openjdk-devel
-    - go
-    - nodejs
-    - hub
-    - ntp
+    - ntp    
   become: true

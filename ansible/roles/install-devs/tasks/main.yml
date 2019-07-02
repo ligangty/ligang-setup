@@ -1,0 +1,21 @@
+---
+
+- name: Install dev tools
+  dnf: name={{ item }} state=latest
+  with_items:    
+    - java-1.8.0-openjdk
+    - java-1.8.0-openjdk-src
+    - java-1.8.0-openjdk-devel
+    - code
+    - go
+    - nodejs   
+  become: true
+
+- name: Install global npm packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - typescript
+    - ts-node
+    - ng
+    - "@angular/cli"
+  become: true
