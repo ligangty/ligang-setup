@@ -20,6 +20,7 @@
     - "@angular/cli"
   become: true
 
+### docker installation start
 
 - name: remove diro docker stuff if installed
   dnf:
@@ -48,3 +49,19 @@
     name: docker-ce
     state: latest
   become: true
+
+- name: add myself to docker group
+  user:
+    name: gli
+    groups: docker
+    append: yes
+  become: true
+
+- name: enable docker service  
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+  become: true
+
+### docker installation end
