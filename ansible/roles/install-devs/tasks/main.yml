@@ -19,3 +19,32 @@
     - ng
     - "@angular/cli"
   become: true
+
+
+- name: remove diro docker stuff if installed
+  dnf:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-common
+    - container-selinux
+    - docker-selinux
+    - docker-engine
+  become: true
+
+- name: install dnf-plugin-core
+  dnf: 
+    name: dnf-plugins-core
+    state: latest
+  become: true
+
+- name: install docker ce repo      
+  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  become: true
+
+- name: install docker ce
+  dnf:
+    name: docker-ce
+    state: latest
+  become: true
