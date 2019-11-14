@@ -1,19 +1,22 @@
 ---
 
 - name: Install dev tools
-  dnf: name={{ item }} state=latest
-  with_items:    
-    - java-1.8.0-openjdk
-    - java-1.8.0-openjdk-src
-    - java-1.8.0-openjdk-devel
-    - code
-    - go
-    - nodejs   
+  dnf: 
+    name:
+      - java-1.8.0-openjdk
+      - java-1.8.0-openjdk-src
+      - java-1.8.0-openjdk-devel
+      - code
+      - go
+      - nodejs   
+    state: latest
   become: true
 
 - name: Install global npm packages
-  npm: name={{ item }} global=yes
-  with_items:
+  npm: 
+    name: "{{ item }}"
+    global: yes
+  loop:
     - typescript
     - ts-node
     - ng
@@ -24,14 +27,13 @@
 
 - name: remove diro docker stuff if installed
   dnf:
-    name: "{{ item }}"
+    name: 
+      - docker
+      - docker-common
+      - container-selinux
+      - docker-selinux
+      - docker-engine
     state: absent
-  with_items:
-    - docker
-    - docker-common
-    - container-selinux
-    - docker-selinux
-    - docker-engine
   become: true
 
 - name: install dnf-plugin-core
