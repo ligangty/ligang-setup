@@ -11,6 +11,10 @@ alias la='ls -alh --color=auto'
 alias lstree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 # common alias
+alias mv='mv -v'
+alias mkdir='mkdir -v'
+alias cp='cp -v'
+alias rm='rm -v'
 alias tailf='tail -f'
 alias ping='ping -c 5'
 alias df='df -h'
