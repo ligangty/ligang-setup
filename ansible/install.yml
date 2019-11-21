@@ -3,9 +3,11 @@
 - name: local workstation initialization
   hosts: 127.0.0.1
   connection: local
+  vars: 
+    default_user: gli
   
   roles:
-    - install-tools
-    - setup-system
+    - {role: install-tools, become: yes}
+    - {role: setup-system, become: yes}
     - setup-usrenv
-    - install-devs
+    - {role: install-devs, become: yes}

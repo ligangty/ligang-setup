@@ -2,56 +2,35 @@
 
 - name: Update all packages
   dnf: name=* state=latest
-  become: true
 
 - name: Install RPM fusion
   dnf: 
     name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm" 
     state: present
-  become: true
 
 - name: Import ms vscode repo key and google chrome repo key
   rpm_key: key={{ item }} state=present
   loop:
     - https://packages.microsoft.com/keys/microsoft.asc 
     - https://dl.google.com/linux/linux_signing_key.pub    
-  become: true
 
 - name: Create vscode and chrome repo files
   file: path={{ item }} owner=root group=root mode=0644 state=touch
   loop:
     - /etc/yum.repos.d/vscode.repo
     - /etc/yum.repos.d/google-chrome.repo
-  become: true
 
 - name: Add ms vscode repo
   lineinfile:
     path: /etc/yum.repos.d/vscode.repo
     line: "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc"
-  become: true
 
 - name: Add google chrome repo
   lineinfile: 
     path: /etc/yum.repos.d/google-chrome.repo
     line: "[google-chrome]\nname=google-chrome\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl.google.com/linux/linux_signing_key.pub"
-  become: true    
 
 - name: Install preferred tools
   dnf: 
-    name:
-      - wget
-      - vim
-      - tmux
-      - lsof
-      - gzip
-      - git
-      - hub 
-      - autojump
-      - unrar
-      - gimp
-      - vlc
-      - evince
-      - google-chrome
-      - ntp
+    name: "{{ preferred_tools }}"
     state: latest   
-  become: true

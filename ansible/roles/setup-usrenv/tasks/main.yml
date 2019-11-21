@@ -1,10 +1,14 @@
 ---
 
 - name: Setup bash & git config files
-  copy: src={{ item }} dest={{ lookup('env', 'HOME') }}/ owner={{ lookup('env', 'USER') }} group={{ lookup('env', 'USER') }} mode=644
+  copy: 
+    src: "{{ item }}" 
+    dest: "{{ lookup('env', 'HOME')|default(default_home) }}/" 
+    owner: "{{ lookup('env', 'USER')|default(default_user) }}" 
+    group: "{{ lookup('env', 'USER')|default(default_user) }}"
+    mode: 0644
   loop:
     - .aliases
     - .bashrc
     - .bash_profile
     - .gitconfig
-  become: false

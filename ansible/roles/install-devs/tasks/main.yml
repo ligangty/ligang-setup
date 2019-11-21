@@ -2,68 +2,45 @@
 
 - name: Install dev tools
   dnf: 
-    name:
-      - java-1.8.0-openjdk
-      - java-1.8.0-openjdk-src
-      - java-1.8.0-openjdk-devel
-      - code
-      - go
-      - nodejs   
+    name: "{{ devtools }}"
     state: latest
-  become: true
 
 - name: Install global npm packages
   npm: 
     name: "{{ item }}"
     global: yes
-  loop:
-    - typescript
-    - ts-node
-    - ng
-    - "@angular/cli"
-  become: true
+  loop: "{{ npmpkgs }}"
 
 ### docker installation start
 
 - name: remove diro docker stuff if installed
   dnf:
-    name: 
-      - docker
-      - docker-common
-      - container-selinux
-      - docker-selinux
-      - docker-engine
+    name: "{{ installed_dockers }}"
     state: absent
-  become: true
 
 - name: install dnf-plugin-core
   dnf: 
     name: dnf-plugins-core
     state: latest
-  become: true
 
 - name: install docker ce repo      
   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-  become: true
 
 - name: install docker ce
   dnf:
     name: docker-ce
     state: latest
-  become: true
 
 - name: add myself to docker group
   user:
-    name: gli
+    name: "{{ lookup('env', 'USER')|default(default_user) }}"
     groups: docker
     append: yes
-  become: true
 
 - name: enable docker service  
   systemd:
     name: docker
     enabled: yes
     masked: no
-  become: true
 
 ### docker installation end

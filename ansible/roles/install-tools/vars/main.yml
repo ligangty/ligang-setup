@@ -1,0 +1,15 @@
+preferred_tools: 
+  - wget
+  - vim
+  - tmux
+  - lsof
+  - gzip
+  - git
+  - hub 
+  - autojump
+  - unrar
+  - gimp
+  - vlc
+  - evince
+  - google-chrome
+  - ntp

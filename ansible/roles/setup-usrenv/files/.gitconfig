@@ -5,16 +5,16 @@
 	ui = true
 [alias]
 	tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    rebasehead = rebase -i HEAD~2
-    so = show --name-only
-    co = checkout
-    b = branch
-    s = status
-    f = fetch --all
-    p = push
-    l = pull
-    lg = log
-    lgo = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    ca = commit -v -a
+  rebasehead = rebase -i HEAD~2
+  so = show --name-only
+  co = checkout
+  b = branch
+  s = status
+  f = fetch --all
+  p = push
+  l = pull
+  lg = log
+  lgo = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ca = commit -v -a
 [core]
 	editor = vim
