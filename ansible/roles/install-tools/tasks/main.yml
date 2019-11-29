@@ -6,43 +6,17 @@
 - name: Install RPM fusion
   dnf: 
     name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm" 
-    state: present
+    state: present   
 
-- name: Import ms vscode repo key and google chrome repo key
-  rpm_key: key={{ item }} state=present
-  loop:
-    - https://packages.microsoft.com/keys/microsoft.asc 
-    - https://dl.google.com/linux/linux_signing_key.pub    
-
-- name: Create vscode and chrome repo files
-  file: path={{ item }} owner=root group=root mode=0644 state=touch
-  loop:
-    - /etc/yum.repos.d/vscode.repo
-    - /etc/yum.repos.d/google-chrome.repo
-
-- name: Add ms vscode repo
+- name: Add additional rpm repositories
   yum_repository:
-    name: vscode
-    description: "Visual Studio Code"
-    baseurl: https://packages.microsoft.com/yumrepos/vscode
-    enabled: yes
-    gpgcheck: yes
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-  # lineinfile:
-  #   path: /etc/yum.repos.d/vscode.repo
-  #   line: "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc"
-
-- name: Add google chrome repo
-  yum_repository:
-    name: google-chrome
-    description: "Google Chrome repo"
-    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
-    enabled: yes
-    gpgcheck: yes
-    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
-  # lineinfile: 
-  #   path: /etc/yum.repos.d/google-chrome.repo
-  #   line: "[google-chrome]\nname=google-chrome\nbaseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl.google.com/linux/linux_signing_key.pub"
+    name: "{{ item.name|mandatory }}"
+    description:  "{{ item.description|mandatory }}"
+    baseurl:  "{{ item.baseurl|mandatory }}"
+    enabled:  "{{ item.enabled|default('yes') }}"
+    gpgcheck:  "{{ item.gpgcheck|default('yes') }}"
+    gpgkey:  "{{ item.gpgkey }}"
+  loop: "{{ rpm_repos }}"
 
 - name: Install preferred tools
   dnf: 
