@@ -7,7 +7,7 @@ preferred_tools:
   - git
   - hub 
   - autojump
-  - unrar
+  # - unrar # unrar is unavailabe from offiecial repo
   - gimp
   - vlc
   - evince
