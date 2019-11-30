@@ -1,14 +1,54 @@
 ---
 
+- set_fact: 
+    cur_user: "{{ lookup('env', 'USER')|default(default_user) }}"
+
+- set_fact: 
+    user_home: "{{ lookup('env', 'HOME')|default(default_home) }}" 
+
+- set_fact:
+    devlib_path: "{{ user_home }}/devlib"
+
+- name: Setup devlib
+  file:
+    path: "{{ devlib_path }}"
+    state: directory
+    mode: 0744 
+
+- name: Setup maven
+  unarchive: 
+    src: "{{ maven_url }}"
+    dest: "{{ devlib_path }}/"
+    remote_src: yes
+
+- name: Setup gradle
+  unarchive: 
+    src: "{{ gradle_url }}"
+    dest: "{{ devlib_path }}/"
+    remote_src: yes
+
+- name: Setup ant
+  unarchive: 
+    src: "{{ ant_url }}"
+    dest: "{{ devlib_path }}/"
+    remote_src: yes
+
 - name: Setup bash & git config files
   copy: 
     src: "{{ item }}" 
-    dest: "{{ lookup('env', 'HOME')|default(default_home) }}/" 
-    owner: "{{ lookup('env', 'USER')|default(default_user) }}" 
-    group: "{{ lookup('env', 'USER')|default(default_user) }}"
+    dest: "{{ user_home }}/" 
+    owner: "{{ cur_user }}" 
+    group: "{{ cur_user }}"
     mode: 0644
   loop:
     - .aliases
-    - .bashrc
     - .bash_profile
     - .gitconfig
+
+- name: Setup bashrc
+  template: 
+    src: bashrc.j2
+    dest: "{{ user_home }}/.bashrc" 
+    owner: "{{ cur_user }}" 
+    group: "{{ cur_user }}"
+    mode: 0644

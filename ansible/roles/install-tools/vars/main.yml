@@ -12,6 +12,8 @@ preferred_tools:
   - evince
   - google-chrome
   - ntp
+  - rust
+  - cargo
 
 rpm_repos:
   - name: vscode

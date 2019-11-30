@@ -1,55 +1,33 @@
 # ${HOME}/.bashrc
 
 #export JAVA_HOME=/usr/lib/jvm/java
+export HOME="{{ lookup('env', 'HOME')|default(default_home) }}"
 
 # maven
-#export MVN_HOME='/home/gli/devlib/apache-maven-3.0.5'
-#export MVN_HOME='/home/gli/devlib/apache-maven-3.1.0'
-#export MVN_HOME='/home/gli/devlib/apache-maven-3.2.5'
-#export MVN_HOME='/home/gli/devlib/apache-maven-3.3.9'
-export MVN_HOME='/home/gli/devlib/apache-maven-3.6.0'
+export MVN_HOME=$HOME/devlib/{{ maven_dest }}
 export PATH=$PATH:$MVN_HOME/bin
-#export MAVEN_OPTS='-Xms1024m -Xmx4096m -XX:PermSize=512m -XX:MaxPermSize=2048m'
 export MAVEN_OPTS='-Xms1024m -Xmx4096m -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=3072m'
 alias mvnnossl='mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true'
 
-# visualvm
-export VISUALVM_HOME='/home/gli/devlib/visualvm_14'
-export PATH=$PATH:$VISUALVM_HOME/bin
-
 # ant
-export ANT_HOME='/home/gli/devlib/apache-ant-1.8.2'
+export ANT_HOME=$HOME/devlib/{{ ant_dest }}
 export PATH=$PATH:$ANT_HOME/bin
 
 # gradle
-export GRADLE_HOME='/home/gli/devlib/gradle-4.4.1'
+export GRADLE_HOME=$HOME/devlib/{{ gradle_dest }}
 export PATH=$PATH:$GRADLE_HOME/bin
 
-# JBOSS HOME define
-#export JBOSS6_HOME=/home/lg/jboss6
-#export JBOSS7_HOME=/home/gli/jboss-eap-6.1
-#export JBOSS_HOME=''
-
-# JIRA plugin sdk
-# export ATLAS_MVN=$MVN_HOME/bin/mvn
-# export JIRA_SDK_HOME=/opt/atlassian-plugin-sdk
-# export PATH=$PATH:$JIRA_SDK_HOME/bin
-
-# Groovy
-export GROOVY_HOME=/home/gli/devlib/groovy-2.4.6
-export PATH=$PATH:$GROOVY_HOME/bin
-
 # GOPATH & GOROOT
-export GOPATH=/home/gli/mygopath
+export GOPATH=$HOME/mygopath
 export GOROOT=/usr/lib/golang
 
-# KOTLIN 
-export KOTLIN_HOME=/home/gli/devlib/kotlinc-1.2.10
-export PATH=$PATH:$KOTLIN_HOME/bin
-
 # RUST Cargo
-export CARGO_HOME=/home/gli/.cargo
+export CARGO_HOME=$HOME/.cargo
 export PATH=$PATH:$CARGO_HOME/bin
+
+# visualvm
+export VISUALVM_HOME=$HOME/devlib/visualvm_14
+export PATH=$PATH:$VISUALVM_HOME/bin
 
 #git
 function git_branch {

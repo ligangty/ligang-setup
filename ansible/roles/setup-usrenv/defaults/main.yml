@@ -1,2 +1,15 @@
 default_user: gli
 default_home: /home/gli
+
+maven_version: 3.6.0
+maven_url: https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz
+maven_dest: apache-maven-{{ maven_version }}
+
+gradle_version: 6.0.1
+gradle_url: https://downloads.gradle-dn.com/distributions/gradle-{{ gradle_version }}-all.zip
+gradle_dest: gradle-{{ gradle_version }}
+
+ant_version: 1.9.14
+ant_url: https://archive.apache.org/dist/ant/binaries/apache-ant-{{ ant_version }}-bin.tar.gz  
+ant_dest: apache-ant-{{ ant_version }}
+
