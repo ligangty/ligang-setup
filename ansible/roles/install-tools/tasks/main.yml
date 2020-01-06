@@ -3,10 +3,10 @@
 - name: Update all packages
   dnf: name=* state=latest
 
-- name: Install RPM fusion
-  dnf: 
-    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm" 
-    state: present   
+#- name: Install RPM fusion
+#  dnf: 
+#    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm" 
+#    state: present   
 
 - name: Add additional rpm repositories
   yum_repository:

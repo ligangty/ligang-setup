@@ -1,8 +1,9 @@
 default_user: gli
 default_home: /home/gli
 
-maven_version: 3.6.0
-maven_url: https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz
+maven_version: 3.6.3
+#maven_url: https://archive.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz
+maven_url: http://mirror.bit.edu.cn/apache/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz
 maven_dest: apache-maven-{{ maven_version }}
 
 gradle_version: 6.0.1
