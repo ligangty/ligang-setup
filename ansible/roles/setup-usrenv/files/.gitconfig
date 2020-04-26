@@ -1,10 +1,10 @@
 [user]
-	name = Gang Li
-	email = ligangty@gmail.com
+  name = Gang Li
+  email = ligangty@users.noreply.github.com
 [color]
-	ui = true
+  ui = true
 [alias]
-	tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   rebasehead = rebase -i HEAD~2
   so = show --name-only
   co = checkout
@@ -17,4 +17,6 @@
   lgo = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ca = commit -v -a
 [core]
-	editor = vim
+  editor = vim
+[hub]
+  protocol = https
