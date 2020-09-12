@@ -14,6 +14,7 @@ preferred_tools:
   - ntp
   - rust
   - cargo
+  - krb5-workstation
 
 rpm_repos:
   - name: vscode
