@@ -47,8 +47,14 @@
 
 - name: Setup bashrc
   template: 
-    src: bashrc.j2
-    dest: "{{ user_home }}/.bashrc" 
+    src: "{{ item }}.j2"
+    dest: "{{ user_home }}/.{{ item }}" 
     owner: "{{ cur_user }}" 
     group: "{{ cur_user }}"
     mode: 0644
+  loop:
+    - bashrc
+    - bashrc_jvm
+    - bashrc_go
+    - bashrc_py
+    - bashrc_rust

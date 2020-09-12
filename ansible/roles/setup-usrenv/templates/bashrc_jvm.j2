@@ -1,0 +1,19 @@
+#export JAVA_HOME=/usr/lib/jvm/java
+
+# maven
+export MVN_HOME=$HOME/devlib/{{ maven_dest }}
+export PATH=$PATH:$MVN_HOME/bin
+export MAVEN_OPTS='-Xms1024m -Xmx4096m -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=3072m'
+alias mvnnossl='mvn -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true'
+
+# ant
+export ANT_HOME=$HOME/devlib/{{ ant_dest }}
+export PATH=$PATH:$ANT_HOME/bin
+
+# gradle
+export GRADLE_HOME=$HOME/devlib/{{ gradle_dest }}
+export PATH=$PATH:$GRADLE_HOME/bin
+
+# visualvm
+export VISUALVM_HOME=$HOME/devlib/visualvm_14
+export PATH=$PATH:$VISUALVM_HOME/bin
