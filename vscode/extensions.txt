@@ -13,7 +13,6 @@ firsttris.vscode-jest-runner
 golang.go
 Gruntfuggly.todo-tree
 janjoerke.jenkins-pipeline-linter-connector
-martellaj.license-injector
 mhutchie.git-graph
 ms-azuretools.vscode-docker
 ms-python.python

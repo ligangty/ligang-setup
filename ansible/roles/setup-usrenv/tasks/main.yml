@@ -21,19 +21,19 @@
     dest: "{{ devlib_path }}/"
     remote_src: yes
 
-- name: Setup gradle
-  unarchive: 
-    src: "{{ gradle_url }}"
-    dest: "{{ devlib_path }}/"
-    remote_src: yes
+# - name: Setup gradle
+#   unarchive: 
+#     src: "{{ gradle_url }}"
+#     dest: "{{ devlib_path }}/"
+#     remote_src: yes
 
-- name: Setup ant
-  unarchive: 
-    src: "{{ ant_url }}"
-    dest: "{{ devlib_path }}/"
-    remote_src: yes
+# - name: Setup ant
+#   unarchive: 
+#     src: "{{ ant_url }}"
+#     dest: "{{ devlib_path }}/"
+#     remote_src: yes
 
-- name: Setup bash & git config files
+- name: Setup tools config files
   copy: 
     src: "{{ item }}" 
     dest: "{{ user_home }}/" 
@@ -44,6 +44,7 @@
     - .aliases
     - .bash_profile
     - .gitconfig
+    - .vimrc
 
 - name: Setup bashrc
   template: 
