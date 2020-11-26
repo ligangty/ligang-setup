@@ -20,3 +20,5 @@
   editor = vim
 [hub]
   protocol = https
+[url "git@github.com:"]
+	insteadOf = https://github.com/
