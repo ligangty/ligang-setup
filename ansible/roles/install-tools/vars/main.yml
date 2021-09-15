@@ -8,7 +8,6 @@ preferred_tools:
   - hub 
   - autojump
   - gimp
-#  - vlc
   - evince
   - google-chrome
   - ntp
@@ -16,6 +15,8 @@ preferred_tools:
   - cargo
   - krb5-workstation
   - make
+  - jq
+  #  - vlc
 
 rpm_repos:
   - name: vscode
