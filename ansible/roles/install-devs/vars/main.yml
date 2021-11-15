@@ -5,6 +5,8 @@ devtools:
   - code
   - go
   - nodejs   
+  - rust
+  - cargo
 
 npmpkgs: 
   - typescript

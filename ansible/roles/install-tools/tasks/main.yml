@@ -18,9 +18,14 @@
     gpgkey:  "{{ item.gpgkey }}"
   loop: "{{ rpm_repos }}"
 
-- name: Install preferred tools
+- name: Install system tools
   dnf: 
-    name: "{{ preferred_tools }}"
+    name: "{{ system_tools }}"
+    state: latest   
+
+- name: Install programming tools
+  dnf: 
+    name: "{{ program_tools }}"
     state: latest   
 
 - name: Extract unrar 

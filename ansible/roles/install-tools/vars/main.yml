@@ -1,21 +1,23 @@
-preferred_tools: 
-  - wget
+program_tools: 
   - vim
   - tmux
   - lsof
-  - gzip
   - git
   - hub 
+  - gcc
+  - make
+  - jq
+
+system_tools:
+  - wget
+  - gzip
   - autojump
   - gimp
   - evince
-  - google-chrome
   - ntp
-  - rust
-  - cargo
   - krb5-workstation
-  - make
-  - jq
+  - google-chrome
+  - chrome-gnome-shell
   #  - vlc
 
 rpm_repos:
