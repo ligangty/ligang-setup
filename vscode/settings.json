@@ -1,92 +1,120 @@
 {
-  "editor.fontSize": 18,
-  "window.zoomLevel": 2,
-  "files.exclude": {
-      "**/.classpath": true,
-      "**/.project": true,
-      "**/.settings": true,
-      "**/.factorypath": true
-  },
-  "files.associations": {
-      "*.Jenkinsfile": "groovy",
-      "*.jenkinsfile": "groovy"
-  },
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.startupEditor": "newUntitledFile",
-  "java.errors.incompleteClasspath.severity": "ignore",
-  "go.formatTool": "goimports",
-  "go.useLanguageServer": true,
-  "python.jediEnabled": false,
-  "python.languageServer": "Microsoft",
-  "todo-tree.tree.showScanModeButton": false,
-  "fileheader.configObj": {
+    "editor.fontSize": 18,
+    "window.zoomLevel": 3,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "files.associations": {
+        "*.Jenkinsfile": "groovy",
+        "*.jenkinsfile": "groovy"
+    },
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.startupEditor": "newUntitledFile",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
+    "todo-tree.tree.showScanModeButton": false,
+    "fileheader.configObj": {
 
-      "createFileTime": true,
-      "language": {
-          "go/java": {
-              "head": "/*  ",
-              "middle": " *  ",
-              "end": " */  "
-          }
-      },
-      "autoAdd": true,
-      "autoAddLine": 100,
-      "autoAlready": true,
-      "annotationStr": {
-          "head": "/*",
-          "middle": " * ",
-          "end": " */",
-          "use": false
-      },
-      "headInsertLine": {
-          "php": 2
-      },
-      "beforeAnnotation": {
-          "文件后缀": "该文件后缀的头部注释之前添加某些内容"
-      },
-      "afterAnnotation": {
-          "go/java": "\n"
-      },
-      "specialOptions": {
-          "特殊字段": "自定义比如LastEditTime/LastEditors"
-      },
-      "switch": {
-          "newlineAddAnnotation": true
-      },
-      "supportAutoLanguage": [],
-      "prohibitAutoAdd": [
-          "json"
-      ],
-      "prohibitItemAutoAdd": [
-          "项目的全称, 整个项目禁止自动添加头部注释, 可以使用快捷键添加"
-      ],
-      "moveCursor": true,
-      "dateFormat": "YYYY-MM-DD HH:mm:ss",
-      "atSymbol": "@",
-      "atSymbolObj": {
-          "文件后缀": "修改它的@符号"
-      },
-      "colon": ": ",
-      "colonObj": {
-          "文件后缀": "修改它的冒号"
-      },
-      "filePathColon": "路径分隔符替换",
-      "showErrorMessage": false,
-      "wideSame": false,
-      "wideNum": 13,
-      "CheckFileChange": false,
-      "createHeader": true,
-      "useWorker": false,
-      "typeParam": true,
-      "designAddHead": false,
-      "headDesignName": "random",
-      "headDesign": false
-  },
-  "fileheader.customMade": {
-      "custom_string_obkoro1_copyright": "Copyright (C) 2011-${now_year} Red Hat, Inc.\n",
-      "custom_string_obkoro1": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n        http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
-  }
+        "createFileTime": true,
+        "language": {
+            "go/java": {
+                "head": "/*  ",
+                "middle": " *  ",
+                "end": " */  "
+            }
+        },
+        "autoAdd": true,
+        "autoAddLine": 100,
+        "autoAlready": true,
+        "annotationStr": {
+            "head": "/*",
+            "middle": " * ",
+            "end": " */",
+            "use": false
+        },
+        "headInsertLine": {
+            "php": 2
+        },
+        "beforeAnnotation": {
+            "文件后缀": "该文件后缀的头部注释之前添加某些内容"
+        },
+        "afterAnnotation": {
+            "go/java": "\n"
+        },
+        "specialOptions": {
+            "特殊字段": "自定义比如LastEditTime/LastEditors"
+        },
+        "switch": {
+            "newlineAddAnnotation": true
+        },
+        "supportAutoLanguage": [],
+        "prohibitAutoAdd": [
+            "json"
+        ],
+        "prohibitItemAutoAdd": [
+            "项目的全称, 整个项目禁止自动添加头部注释, 可以使用快捷键添加"
+        ],
+        "moveCursor": true,
+        "dateFormat": "YYYY-MM-DD HH:mm:ss",
+        "atSymbol": "@",
+        "atSymbolObj": {
+            "文件后缀": "修改它的@符号"
+        },
+        "colon": ": ",
+        "colonObj": {
+            "文件后缀": "修改它的冒号"
+        },
+        "filePathColon": "路径分隔符替换",
+        "showErrorMessage": false,
+        "wideSame": false,
+        "wideNum": 13,
+        "CheckFileChange": false,
+        "createHeader": true,
+        "useWorker": false,
+        "typeParam": true,
+        "designAddHead": false,
+        "headDesignName": "random",
+        "headDesign": false
+    },
+    "fileheader.customMade": {
+        "custom_string_obkoro1_copyright": "Copyright (C) 2011-${now_year} Red Hat, Inc.\n",
+        "custom_string_obkoro1": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n        http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
+    },
+    "extensions.ignoreRecommendations": false,
+    "go.toolsManagement.autoUpdate": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "[python]": {
+        "editor.tabSize": 4,
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.autoClosingBrackets": "never",
+        "editor.wordBasedSuggestions": false
+    },
+    "bracketPairColorizer.depreciation-notice": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.colorTheme": "One Dark Modern",
+    "workbench.colorCustomizations": {
+        "list.inactiveSelectionBackground": "#006eff"
+    }
 }
