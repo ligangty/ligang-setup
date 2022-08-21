@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo dnf install ansible -y
+sudo apt-get install ansible -y
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ANSIBLE_PLAY=$DIR/ansible/install.yml

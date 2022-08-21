@@ -1,7 +1,7 @@
 ---
 
 - name: Install dev tools
-  dnf: 
+  apt:
     name: "{{ devtools }}"
     state: latest
 
@@ -14,21 +14,40 @@
 ### docker installation start
 
 - name: remove diro docker stuff if installed
-  dnf:
+  apt:
     name: "{{ installed_dockers }}"
     state: absent
 
-- name: install dnf-plugin-core
-  dnf: 
-    name: dnf-plugins-core
+- name: install prerequisites for docker-ce
+  apt:
+    name: 
+      - curl
+      - ca-certificates
+      - gnupg
+      - lsb-release
     state: latest
 
-- name: install docker ce repo      
-  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+- name: prepare docker-ce gpgs folder
+  file: 
+    path: /etc/apt/keyrings
+    state: directory
+
+- name: get docker-ce gpgs keys
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    keyring: /etc/apt/keyrings/docker.gpg
+    state: present
+
+- name: set up docker-ce repo
+  shell: echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 - name: install docker ce
-  dnf:
-    name: docker-ce
+  apt:
+    name: 
+      - docker-ce
+      - docker-ce-cli 
+      - containerd.io 
+      # - docker-compose-plugin
     state: latest
 
 - name: add myself to docker group

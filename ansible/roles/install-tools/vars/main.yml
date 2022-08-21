@@ -15,9 +15,9 @@ system_tools:
   - gimp
   - evince
   - ntp
-  - krb5-workstation
-  - google-chrome
-  - chrome-gnome-shell
+  # - krb5-workstation
+  # - google-chrome
+  # - chrome-gnome-shell
   #  - vlc
 
 rpm_repos:

@@ -1,30 +1,18 @@
 ---
 
 - name: Update all packages
-  dnf: name=* state=latest
-
-#- name: Install RPM fusion
-#  dnf: 
-#    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm" 
-#    state: present   
-
-- name: Add additional rpm repositories
-  yum_repository:
-    name: "{{ item.name|mandatory }}"
-    description:  "{{ item.description|mandatory }}"
-    baseurl:  "{{ item.baseurl|mandatory }}"
-    enabled:  "{{ item.enabled|default('yes') }}"
-    gpgcheck:  "{{ item.gpgcheck|default('yes') }}"
-    gpgkey:  "{{ item.gpgkey }}"
-  loop: "{{ rpm_repos }}"
+  apt:
+    name: "*" 
+    state: latest
+ 
 
 - name: Install system tools
-  dnf: 
+  apt:
     name: "{{ system_tools }}"
     state: latest   
 
 - name: Install programming tools
-  dnf: 
+  apt: 
     name: "{{ program_tools }}"
     state: latest   
 

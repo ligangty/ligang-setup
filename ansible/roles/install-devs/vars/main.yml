@@ -1,12 +1,12 @@
 devtools:
-  - java-1.8.0-openjdk
-  - java-1.8.0-openjdk-src
-  - java-1.8.0-openjdk-devel
-  - code
-  - go
+  - openjdk-8-jdk
+  - openjdk-8-source
+  - openjdk-11-jdk
+  - openjdk-11-source
+  - golang
   - nodejs   
-  - rust
-  - cargo
+  - npm
+  - com.visualstudio.code
 
 npmpkgs: 
   - typescript
@@ -16,7 +16,7 @@ npmpkgs:
 
 installed_dockers: 
   - docker
-  - docker-common
-  - container-selinux
-  - docker-selinux
   - docker-engine
+  - docker.io
+  - containerd
+  - runc
