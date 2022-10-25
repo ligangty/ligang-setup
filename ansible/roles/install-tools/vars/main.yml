@@ -14,11 +14,15 @@ system_tools:
   - autojump
   - gimp
   - evince
-  - ntp
   - krb5-workstation
-  - google-chrome
+  - google-chrome-stable
   - chrome-gnome-shell
-  #  - vlc
+  # - vlc
+  # - ntp
+  - libreoffice-writer
+  - libreoffice-calc
+  - libreoffice-impress
+  - libreoffice-langpack-zh-Hans
 
 rpm_repos:
   - name: vscode

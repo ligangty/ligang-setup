@@ -1,5 +1,14 @@
 ---
 
+- name: Install java
+  dnf: 
+    name: 
+      - "java-{{ item }}-openjdk"
+      - "java-{{ item }}-openjdk-src"
+      - "java-{{ item }}-openjdk-devel"
+    state: latest
+  loop: "{{ javaversions }}"
+
 - name: Install dev tools
   dnf: 
     name: "{{ devtools }}"

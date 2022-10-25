@@ -1,7 +1,9 @@
+javaversions
+  - 1.8.0
+  - 11
+  - 17
+
 devtools:
-  - java-1.8.0-openjdk
-  - java-1.8.0-openjdk-src
-  - java-1.8.0-openjdk-devel
   - code
   - go
   - nodejs   
