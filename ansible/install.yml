@@ -9,5 +9,5 @@
   roles:
     - {role: install-tools, become: yes}
     - {role: setup-system, become: yes}
-    - setup-usrenv
+    - {role: setup-usrenv}
     - {role: install-devs, become: yes}

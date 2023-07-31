@@ -16,7 +16,7 @@ system_tools:
   - evince
   - krb5-workstation
   - google-chrome-stable
-  - chrome-gnome-shell
+  - microsoft-edge-dev
   # - vlc
   # - ntp
   - libreoffice-writer
@@ -37,3 +37,9 @@ rpm_repos:
     enabled: yes
     gpgcheck: yes
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+  - name: ms-edge-dev
+    description: "Visual Studio Code"
+    baseurl: https://packages.microsoft.com/yumrepos/edge
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
