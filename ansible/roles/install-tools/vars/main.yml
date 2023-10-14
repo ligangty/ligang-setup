@@ -1,5 +1,6 @@
 program_tools: 
   - vim
+  - gedit
   - tmux
   - lsof
   - git
@@ -7,6 +8,8 @@ program_tools:
   - gcc
   - make
   - jq
+  - gettext
+  - openssl
 
 system_tools:
   - wget
