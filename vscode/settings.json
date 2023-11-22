@@ -21,6 +21,14 @@
     "go.useLanguageServer": true,
     "python.jediEnabled": false,
     "python.languageServer": "Pylance",
+    "python.testing.unittestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "*test*.py"
+    ],
     "todo-tree.tree.showScanModeButton": false,
     "fileheader.configObj": {
 
@@ -89,8 +97,27 @@
         "custom_string_obkoro1_copyright": "Copyright (C) 2011-${now_year} Red Hat, Inc.\n",
         "custom_string_obkoro1": "Licensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n        http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
     },
+
+    "java.configuration.runtimes": [
+        {
+          "name": "JavaSE-1.8",
+          "path": "/etc/alternatives/java_sdk_1.8.0_openjdk"
+        },
+        {
+          "name": "JavaSE-11",
+          "path": "/etc/alternatives/java_sdk_11_openjdk"
+        },
+        {
+          "name": "JavaSE-17",
+          "path": "/etc/alternatives/java_sdk_17_openjdk"
+        }
+    ],
     "extensions.ignoreRecommendations": false,
+    "java.project.importHint": false,
     "go.toolsManagement.autoUpdate": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -107,14 +134,17 @@
             "!Module"
         ],
         "editor.autoClosingBrackets": "never",
-        "editor.wordBasedSuggestions": false
+        "editor.wordBasedSuggestions": false,
+        "editor.formatOnType": true
     },
     "bracketPairColorizer.depreciation-notice": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
     "workbench.colorTheme": "One Dark Modern",
     "workbench.colorCustomizations": {
         "list.inactiveSelectionBackground": "#006eff"
-    }
+    },
+    "npm.keybindingsChangedWarningShown": true,
+    "Codegeex.Privacy": false,
+    "Codegeex.Explanation.LanguagePreference": "English",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false
 }
