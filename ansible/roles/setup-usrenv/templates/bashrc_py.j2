@@ -1,1 +1,15 @@
 export PATH=$PATH:$HOME/.local/bin
+
+#get_py_ver()
+#{
+#  py_str=$(python --version)
+#  py_ver=${py_str:6}
+#  py_main_ver=$(echo $py_ver | cut -d "." -f 1)
+#  py_sec_ver=$(echo $py_ver | cut -d "." -f 2)
+#  echo "$py_main_ver.$py_sec_ver"
+#}
+#py_ver=$(get_py_ver)
+
+if [ -f "$HOME/.local/bin/pip" ]; then
+  alias pip="$HOME/.local/bin/pip"
+fi
