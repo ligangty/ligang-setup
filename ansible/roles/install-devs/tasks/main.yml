@@ -1,13 +1,25 @@
 ---
 
-- name: Install java
+- name: Install openjdk
   dnf: 
     name: 
       - "java-{{ item }}-openjdk"
       - "java-{{ item }}-openjdk-src"
       - "java-{{ item }}-openjdk-devel"
     state: latest
-  loop: "{{ javaversions }}"
+  loop: "{{ openjdkversions }}"
+  when: ansible_distribution == "Fedora" and
+        ansible_distribution_version is version('39', '<=')
+
+- name: Install temurin jdk
+  dnf:
+    name:
+      - "adoptium-temurin-java-repository"
+      - "temurin-{{ item }}-jdk"
+    state: latest
+  loop: "{{ temurinjdkversions }}"
+  when: ansible_distribution == "Fedora" and
+        ansible_distribution_version is version('40', '>=')
 
 - name: Install dev tools
   dnf: 
