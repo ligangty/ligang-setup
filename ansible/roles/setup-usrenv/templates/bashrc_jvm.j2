@@ -1,4 +1,4 @@
-#export JAVA_HOME=/usr/lib/jvm/java
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 # maven
 export MVN_HOME=$HOME/devlib/{{ maven_dest }}
