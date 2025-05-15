@@ -24,9 +24,9 @@ npmpkgs:
   - ng
   - "@angular/cli"
 
-installed_dockers: 
-  - docker
-  - docker-common
-  - container-selinux
-  - docker-selinux
-  - docker-engine
+# installed_dockers: 
+#   - docker
+#   - docker-common
+#   - container-selinux
+#   - docker-selinux
+#   - docker-engine

@@ -34,34 +34,41 @@
 
 ### docker installation start
 
-- name: remove diro docker stuff if installed
-  dnf:
-    name: "{{ installed_dockers }}"
-    state: absent
+# - name: remove diro docker stuff if installed
+#   dnf:
+#     name: "{{ installed_dockers }}"
+#     state: absent
 
-- name: install dnf-plugin-core
-  dnf: 
-    name: dnf-plugins-core
-    state: latest
+# - name: install dnf-plugin-core
+#   dnf: 
+#     name: dnf-plugins-core
+#     state: latest
 
-- name: install docker ce repo      
-  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+# - name: install docker ce repo      
+#   command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
-- name: install docker ce
-  dnf:
-    name: docker-ce
-    state: latest
+# - name: install docker ce
+#   dnf:
+#     name: docker-ce
+#     state: latest
 
-- name: add myself to docker group
-  user:
-    name: "{{ lookup('env', 'USER')|default(default_user) }}"
-    groups: docker
-    append: yes
+# - name: add myself to docker group
+#   user:
+#     name: "{{ lookup('env', 'USER')|default(default_user) }}"
+#     groups: docker
+#     append: yes
 
-- name: enable docker service  
-  systemd:
-    name: docker
-    enabled: yes
-    masked: no
+# - name: enable docker service  
+#   systemd:
+#     name: docker
+#     enabled: yes
+#     masked: no
 
 ### docker installation end
+
+- name: Install podman
+  dnf:
+    name:
+      - "podman"
+      - "podman-compose"
+    state: latest

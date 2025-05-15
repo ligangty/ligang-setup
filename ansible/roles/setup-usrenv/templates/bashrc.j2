@@ -12,8 +12,10 @@ export PS1="[\u@laptop:\[\033[1;32m\]\W\[\033[0m] \033[1;36m\]\$(git_branch)\[\0
 # EDITOR
 export EDITOR=vim
 
-# docker
-export BUILDKIT_PROGRESS=plain
+# docker && podman
+# export BUILDKIT_PROGRESS=plain
+alias docker=podman
+alias docker-compose="podman-compose"
 
 source $HOME/.aliases
 
