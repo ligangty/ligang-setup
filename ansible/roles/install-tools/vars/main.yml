@@ -5,26 +5,43 @@ program_tools:
   - lsof
   - git
   - gcc
+  - gcc-c++
   - make
   - jq
+  - yq
   - gettext
   - openssl
+  - openssl-devel
+  - openldap-clients
+  - meld # compare tools with UI
+  - kubectl
+  # - yamllint
+  # - haolint
+  # - shellcheck
 
 system_tools:
   - wget
   - gzip
   - autojump
+  - htop
+  - telnet
   - gimp
   - evince
+  - foliate # this is a epub reader
   - krb5-workstation
   - google-chrome-stable
   - microsoft-edge-dev
   # - vlc
   # - ntp
+  # - rhythmbox
   - libreoffice-writer
   - libreoffice-calc
   - libreoffice-impress
   - libreoffice-langpack-zh-Hans
+  - dnf-utils
+  - gnome-terminal
+  - gnome-terminal-nautilus
+  - ibus-libzhuyin
 
 rpm_repos:
   - name: vscode
