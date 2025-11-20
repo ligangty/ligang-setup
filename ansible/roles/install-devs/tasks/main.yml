@@ -1,6 +1,6 @@
 ---
 
-- name: Install openjdk on lower fedora
+- name: Install openjdk on fedora 41-
   dnf:
     name:
       - "java-{{ item }}-openjdk"
@@ -9,9 +9,9 @@
     state: latest
   loop: "{{ oldopenjdkversions }}"
   when: ansible_distribution == "Fedora" and
-        ansible_distribution_version is version('39', '<=')
+        ansible_distribution_version is version('41', '<=')
 
-- name: Install openjdk on lower fedora
+- name: Install openjdk on fedora 42+
   dnf:
     name:
       - "java-{{ item }}-openjdk"
@@ -22,23 +22,24 @@
   when: ansible_distribution == "Fedora" and
         ansible_distribution_version is version('42', '>=')
 
-- name: Install temurin java repo
+- name: Install temurin java repo on fedora 42+
   dnf:
     name:
       - "adoptium-temurin-java-repository"
     state: latest
-  loop: "{{ temurinjdkversions }}"
   when: ansible_distribution == "Fedora" and
         ansible_distribution_version is version('42', '>=')
+  ignore_errors: true
 
-- name: Install temurin java jdk
+- name: Install temurin java jdk on fedora 42+
   dnf:
     name:
-      - - "temurin-{{ item }}-jdk"
+      - "temurin-{{ item }}-jdk"
     state: latest
   loop: "{{ temurinjdkversions }}"
   when: ansible_distribution == "Fedora" and
         ansible_distribution_version is version('42', '>=')
+  ignore_errors: true
 
 - name: Install dev tools
   dnf:
