@@ -4,7 +4,6 @@ program_tools:
   - tmux
   - lsof
   - git
-  - hub 
   - gcc
   - make
   - jq

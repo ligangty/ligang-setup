@@ -1,33 +1,52 @@
 ---
 
-- name: Install openjdk
-  dnf: 
-    name: 
+- name: Install openjdk on lower fedora
+  dnf:
+    name:
       - "java-{{ item }}-openjdk"
       - "java-{{ item }}-openjdk-src"
       - "java-{{ item }}-openjdk-devel"
     state: latest
-  loop: "{{ openjdkversions }}"
+  loop: "{{ oldopenjdkversions }}"
   when: ansible_distribution == "Fedora" and
         ansible_distribution_version is version('39', '<=')
 
-- name: Install temurin jdk
+- name: Install openjdk on lower fedora
+  dnf:
+    name:
+      - "java-{{ item }}-openjdk"
+      - "java-{{ item }}-openjdk-src"
+      - "java-{{ item }}-openjdk-devel"
+    state: latest
+  loop: "{{ newopenjdkversions }}"
+  when: ansible_distribution == "Fedora" and
+        ansible_distribution_version is version('42', '>=')
+
+- name: Install temurin java repo
   dnf:
     name:
       - "adoptium-temurin-java-repository"
-      - "temurin-{{ item }}-jdk"
     state: latest
   loop: "{{ temurinjdkversions }}"
   when: ansible_distribution == "Fedora" and
-        ansible_distribution_version is version('40', '>=')
+        ansible_distribution_version is version('42', '>=')
+
+- name: Install temurin java jdk
+  dnf:
+    name:
+      - - "temurin-{{ item }}-jdk"
+    state: latest
+  loop: "{{ temurinjdkversions }}"
+  when: ansible_distribution == "Fedora" and
+        ansible_distribution_version is version('42', '>=')
 
 - name: Install dev tools
-  dnf: 
+  dnf:
     name: "{{ devtools }}"
     state: latest
 
 - name: Install global npm packages
-  npm: 
+  npm:
     name: "{{ item }}"
     global: yes
   loop: "{{ npmpkgs }}"
