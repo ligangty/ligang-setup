@@ -10,7 +10,7 @@
   co = checkout
   b = branch
   s = status
-  f = fetch --all
+  f = fetch --all --prune
   p = push
   l = pull
   lg = log
