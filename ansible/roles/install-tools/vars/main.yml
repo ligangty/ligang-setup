@@ -62,3 +62,9 @@ rpm_repos:
     enabled: yes
     gpgcheck: yes
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  - name: Kubernetes
+    description: "Kubernetes official repo"
+    baseurl: https://pkgs.k8s.io/core:/stable:/v1.35/rpm/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://pkgs.k8s.io/core:/stable:/v1.35/rpm/repodata/repomd.xml.key
