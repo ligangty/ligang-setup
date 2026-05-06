@@ -1,16 +1,15 @@
 oldopenjdkversions:
-  - 1.8.0
   - 11
   - 17
   - 21
 
 newopenjdkversions:
-  - 21
+  - 25
 
 temurinjdkversions:
-  - 8
   - 11
   - 17
+  - 21
 
 devtools:
   - code
